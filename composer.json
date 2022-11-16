@@ -1,5 +1,5 @@
 {
-  "name": "amranidev/micro-bus",
+  "name": "pleaz/micro-bus",
   "description": "Build your laravel/lumen microservice application with AWS SNS/SQS",
   "type": "laravel-package",
   "license": "MIT",
