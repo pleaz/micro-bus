@@ -16,19 +16,28 @@ class Publisher extends BaseSns
      *
      * @return \Aws\Result
      */
-    public function publish($topic, $message)
+    public function publish($topic, $message, $region = null)
     {
         $topic = $this->getTopicArn($topic);
+        $messageAttributes = [
+            'MICRO_BUS.JOB_UUID' => [
+                'DataType'    => 'String',
+                'StringValue' => (string) Str::uuid(),
+            ]
+        ];
+        if ($region) {
+            $messageAttributes = array_merge($messageAttributes, [
+                'region' => [
+                    'DataType'    => 'String',
+                    'StringValue' => $region,
+                ]
+            ]);
+        }
 
         return $this->sns->publish([
             'Message'           => $this->prepareMessage($message),
             'TopicArn'          => $topic,
-            'MessageAttributes' => [
-                'MICRO_BUS.JOB_UUID' => [
-                    'DataType'    => 'String',
-                    'StringValue' => (string) Str::uuid(),
-                ],
-            ],
+            'MessageAttributes' => $messageAttributes
         ]);
     }
 }
