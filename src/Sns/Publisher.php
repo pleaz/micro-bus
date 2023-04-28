@@ -27,7 +27,7 @@ class Publisher extends BaseSns
         ];
         if ($region) {
             $messageAttributes = array_merge($messageAttributes, [
-                'region' => [
+                'country' => [
                     'DataType'    => 'String',
                     'StringValue' => $region,
                 ]
