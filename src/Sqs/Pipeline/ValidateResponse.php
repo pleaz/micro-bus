@@ -22,6 +22,7 @@ class ValidateResponse
             return;
         }
 
+        dd($response['Messages']);
         $body = json_decode($response['Messages'][0]['Body'], true);
 
         return $next($body);
