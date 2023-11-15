@@ -22,7 +22,10 @@ class ValidateResponse
             return;
         }
 
-        dd($response['Messages']);
+        if (count($response['Messages']) === 0) {
+            return;
+        }
+
         $body = json_decode($response['Messages'][0]['Body'], true);
 
         return $next($body);
