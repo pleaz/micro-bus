@@ -3,17 +3,11 @@
   "description": "Build your laravel/lumen microservice application with AWS SNS/SQS",
   "type": "laravel-package",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "Houssain Amrani",
-      "email": "amranidev@gmail.com"
-    }
-  ],
   "require": {
-    "aws/aws-sdk-php": "^3.95"
+    "aws/aws-sdk-php": "^3.294"
   },
   "require-dev": {
-    "orchestra/testbench": "^7.5"
+    "orchestra/testbench": "^7.38"
   },
   "autoload": {
     "psr-4": {
